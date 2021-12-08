@@ -1,1 +1,42 @@
-<p>crear-avion works!</p>
+<div class="row">
+  <h4 class="center-align">Agregar Avion</h4>
+  <article class="col s6 offset-s3">
+    <form [formGroup]="fgValidador" (ngSubmit)="guardarAvion()">
+      <div class="input-field">
+        <label for="nombre">Nombre</label>
+        <input type="text" formControlName="nombre" name="nombre" id="nombre" required />
+      </div>
+      <div class="input-field">
+        <label for="placa">Placa</label>
+        <input type="text" formControlName="placa" name="placa" id="placa" required />
+      </div>
+      <div class="input-field">
+        <label for="marca">Marca</label>
+        <input type="text" formControlName="marca" name="marca" id="marca" required />
+      </div>
+      <div class="input-field">
+        <label for="modelo">Modelo</label>
+        <input type="text" formControlName="modelo" name="modelo" id="modelo" required />
+      </div>
+      <div class="input-field">
+        <label for="tipo">Tipo</label>
+        <input type="text" formControlName="tipo" name="tipo" id="tipo" required />
+      </div>
+      <div class="input-field">
+        <label for="estado">Estado</label>
+        <input type="text" formControlName="estado" name="estado" id="estado" required />
+      </div>
+      <div class="input-field">
+        <label for="precio">Precio</label>
+        <input type="text" formControlName="precio" name="precio" id="precio" required />
+      </div>
+      <div class="input-field">
+        <label for="imagen">Imagen</label>
+        <input type="text" formControlName="imagen" name="imagen" id="imagen" required />
+      </div>
+      <p class="center-align">
+        <button [disabled]="!fgValidador.valid" class="waves-effect waver-light btn" type="submit"><i class="material-icons right">send</i>Agregar</button>
+      </p>
+    </form>
+  </article>
+</div>

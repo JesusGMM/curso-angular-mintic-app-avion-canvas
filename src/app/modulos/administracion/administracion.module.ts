@@ -10,6 +10,7 @@ import { BuscarAvionComponent } from './aviones/buscar-avion/buscar-avion.compon
 import { EliminarAvionComponent } from './aviones/eliminar-avion/eliminar-avion.component';
 import { EditarAvionComponent } from './aviones/editar-avion/editar-avion.component';
 import { CrearAvionComponent } from './aviones/crear-avion/crear-avion.component';
+import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 
 
 @NgModule({
@@ -25,7 +26,9 @@ import { CrearAvionComponent } from './aviones/crear-avion/crear-avion.component
   ],
   imports: [
     CommonModule,
-    AdministracionRoutingModule
+    AdministracionRoutingModule,
+    FormsModule,
+    ReactiveFormsModule
   ]
 })
 export class AdministracionModule { }

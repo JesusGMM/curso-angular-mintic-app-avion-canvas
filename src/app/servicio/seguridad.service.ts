@@ -65,4 +65,14 @@ export class SeguridadService {
   refrescarDatosSesion(datos: ModeloIdentificar){
     return this.datosUsuarioSesion.next(datos);
   }
+
+  obtenerToken(){
+    let datos = localStorage.getItem('datosSesion');
+    if (datos) {
+      let dato = JSON.parse(datos);
+      return dato;
+    } else {
+      return null;
+    }
+  }
 }

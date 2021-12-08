@@ -3,8 +3,8 @@
       <a href="#" class="brand-logo">SmartAir</a>
       <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons">menu</i></a>
       <ul class="right hide-on-med-and-down">
-        <li *ngIf="sesion"><a routerLink="/administracion/personas" >Usuarios</a></li>
-        <li *ngIf="sesion"><a routerLink="/administracion/avion">Aviones</a></li>
+        <li *ngIf="sesion"><a routerLink="/administracion/buscar-personas" >Usuarios</a></li>
+        <li *ngIf="sesion"><a routerLink="/administracion/buscar-avion">Aviones</a></li>
         <li *ngIf="sesion"><a routerLink="/seguridad/cambiar-clave">Cambiar contraseña</a></li>
         <li *ngIf="!sesion"><a routerLink="/seguridad/identificar">Iniciar sesion</a></li>
         <li *ngIf="sesion"><a routerLink="/seguridad/cerrarSesion">Cerrar sesion</a></li>
@@ -13,8 +13,8 @@
   </nav>
 
   <ul class="sidenav" id="mobile-demo">
-    <li *ngIf="sesion"><a routerLink="/administracion/personas" >Usuarios</a></li>
-    <li *ngIf="sesion"><a routerLink="/administracion/avion">Aviones</a></li>
+    <li *ngIf="sesion"><a routerLink="/administracion/buscar-personas" >Usuarios</a></li>
+    <li *ngIf="sesion"><a routerLink="/administracion/buscar-avion">Aviones</a></li>
     <li *ngIf="sesion"><a routerLink="/seguridad/cambiar-clave">Cambiar contraseña</a></li>
     <li *ngIf="!sesion"><a routerLink="/administracion/identificar">Iniciar sesion</a></li>
     <li *ngIf="sesion"><a routerLink="/seguridad/cerrarSesion">Cerrar sesion</a></li>

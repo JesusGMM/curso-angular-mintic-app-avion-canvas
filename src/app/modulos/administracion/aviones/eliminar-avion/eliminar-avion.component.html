@@ -1,1 +1,21 @@
-<p>eliminar-avion works!</p>
+<div class="container" >
+  <div class="row">
+    <div class="col">
+      <div class="card">
+        <div class="card-image">
+          <img src="{{listadoAviones.imagen}}" />
+          <span class="card-title">{{listadoAviones.nombre}}</span>
+        </div>
+        <div class="card-content">
+          <p>
+            <b>Esta seguro de eliminar este Avion.</b>
+          </p>
+        </div>
+        <div class="card-action">
+            <a class="waves-effect waves-light btn-small red" (click)="eliminarAvion()"><i class="material-icons right">delete</i>Eliminar</a>
+
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
