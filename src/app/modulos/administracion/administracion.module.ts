@@ -11,6 +11,8 @@ import { EliminarAvionComponent } from './aviones/eliminar-avion/eliminar-avion.
 import { EditarAvionComponent } from './aviones/editar-avion/editar-avion.component';
 import { CrearAvionComponent } from './aviones/crear-avion/crear-avion.component';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { FiltrosAvionesPipe } from 'src/app/pipes/filtros-aviones.pipe';
+import { FiltrosUsuariosPipe } from 'src/app/pipes/filtros-usuarios.pipe';
 
 
 @NgModule({
@@ -22,13 +24,16 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
     BuscarAvionComponent,
     EliminarAvionComponent,
     EditarAvionComponent,
-    CrearAvionComponent
+    CrearAvionComponent,
+    FiltrosAvionesPipe,
+    FiltrosUsuariosPipe
   ],
   imports: [
     CommonModule,
     AdministracionRoutingModule,
     FormsModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+  
   ]
 })
 export class AdministracionModule { }

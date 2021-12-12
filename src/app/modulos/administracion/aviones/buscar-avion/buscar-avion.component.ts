@@ -9,6 +9,8 @@ import { AvionService } from 'src/app/servicio/avion.service';
 })
 export class BuscarAvionComponent implements OnInit {
   listadoAviones: ModeloAvion[] = [];
+  buscarAvion: string = '';
+
   constructor(private avionservicio: AvionService) {
     this.obtenerListaAviones();
   }

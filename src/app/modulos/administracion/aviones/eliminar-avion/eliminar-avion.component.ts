@@ -2,6 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModeloAvion } from 'src/app/modelos/avion.modelo';
 import { AvionService } from 'src/app/servicio/avion.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-eliminar-avion',
@@ -35,11 +36,19 @@ export class EliminarAvionComponent implements OnInit {
   eliminarAvion() {
     this.avionservicio.eliminarAvion(this.id).subscribe(
       (datos: ModeloAvion) => {
-        alert('Avion eliminado');
+        Swal.fire({
+          title: 'Avion Eliminado',
+          text: 'Cambios registrados',
+          icon: 'success',
+        })
         this.router.navigate(['/administracion/buscar-avion']);
       },
       (error: any) => {
-        alert('error');
+        Swal.fire({
+          title: 'Error',
+          text: 'Error al eliminar un avión',
+          icon: 'error',
+        })
       }
     );
   }

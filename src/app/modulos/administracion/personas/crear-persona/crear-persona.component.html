@@ -1,1 +1,104 @@
-<p>crear-persona works!</p>
+<div class="row">
+  <h4 class="center-align">Agregar Usuario</h4>
+  <article class="col s6 offset-s3">
+    <form
+      [formGroup]="fgValidador"
+      (ngSubmit)="guardarUsuario()"
+      enctype="multipart/formdata"
+    >
+      <div class="input-field">
+        <label for="nombre">Nombre</label>
+        <input
+          type="text"
+          formControlName="nombre"
+          name="nombre"
+          id="nombre"
+          required
+        />
+      </div>
+      <div class="input-field">
+        <label for="apellido">Apellido</label>
+        <input
+          type="text"
+          formControlName="apellido"
+          name="apellido"
+          id="apellido"
+          required
+        />
+      </div>
+      <div class="input-field">
+        <label for="correo">Correo</label>
+        <input
+          type="text"
+          formControlName="correo"
+          name="correo"
+          id="correo"
+          required
+        />
+      </div>
+      <div class="input-field">
+        <label for="rol">Rol</label>
+        <input type="text" formControlName="rol" name="rol" id="rol" required />
+      </div>
+      <div class="input-field">
+        <label for="ciudad">Ciudad</label>
+        <input
+          type="text"
+          formControlName="ciudad"
+          name="ciudad"
+          id="ciudad"
+          required
+        />
+      </div>
+      <div class="input-field">
+        <label for="departamento">Departamento</label>
+        <input
+          type="text"
+          formControlName="departamento"
+          name="departamento"
+          id="departamento"
+          required
+        />
+      </div>
+      <div class="input-field">
+        <label for="dirreccion">Dirrecion</label>
+        <input
+          type="text"
+          formControlName="dirreccion"
+          name="dirreccion"
+          id="dirreccion"
+          required
+        />
+      </div>
+      <div class="input-field">
+        <label for="estado">Estado</label>
+        <input
+          type="text"
+          formControlName="estado"
+          name="estado"
+          id="estado"
+          required
+        />
+      </div>
+
+      <div class="file-field input-field">
+        <div class="btn">
+          <span>Carta</span>
+          <input formControlName="carta" name="carta" id="carta" type="file" />
+        </div>
+        <div class="file-path-wrapper">
+          <input class="file-path validate" type="text" />
+        </div>
+      </div>
+
+      <p class="center-align">
+        <button
+          [disabled]="!fgValidador.valid"
+          class="waves-effect waver-light btn"
+          type="submit">
+          <i class="material-icons right">send</i>Agregar Usuario
+        </button>
+      </p>
+    </form>
+  </article>
+</div>

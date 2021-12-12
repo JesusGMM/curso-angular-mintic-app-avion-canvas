@@ -27,7 +27,7 @@ const routes: Routes = [
     canActivate:[ValidadroSesionGuard]
   },
   {
-    path: 'elimar-persona/:id',
+    path: 'eliminar-persona/:id',
     component: EliminarPersonaComponent,
     canActivate:[ValidadroSesionGuard]
   },

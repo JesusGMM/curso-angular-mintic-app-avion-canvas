@@ -1,1 +1,53 @@
-<p>buscar-persona works!</p>
+<div class="containe">
+    <a
+      routerLink="/administracion/crear-persona"
+      class="waves-effect waves-light btn"
+      ><i class="material-icons right">add</i>Agregar Usuario</a>
+  
+        <div class="row">
+          <div class="input-field col s12">
+            <i class="material-icons prefix">search</i>
+            <input id="icon_prefix" name="buscarUsuario" type="text" [(ngModel)]="buscarUsuario" />
+            <label for="icon_prefix">Buscar</label>
+          </div>
+        </div>
+  
+    
+    <table class="table responsive">
+      <thead>
+        <tr>
+          <th>Nombre</th>
+          <th>Apellido</th>
+          <th>Correo</th>
+          <th>Rol</th>
+          <th>Ciudad</th>
+          <th>Departamento</th>
+          <th>Dirrecion</th>
+          <th>Estado</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let p of listadoUsuario | filtrosUsuarios:buscarUsuario">
+          <td>{{ p.nombre }}</td>
+          <td>{{ p.apellido }}</td>
+          <td>{{ p.correo }}</td>
+          <td>{{ p.rol }}</td>
+          <td>{{ p.ciudad }}</td>
+          <td>{{ p.departamento }}</td>
+          <td>{{ p.dirreccion}}</td>
+          <td>{{ p.estado }}</td>
+          <td>
+            <a routerLink="/administracion/editar-persona/{{ p.id }}" class="btn"
+              >Editar</a
+            >
+          </td>
+          <td>
+            <a routerLink="/administracion/eliminar-persona/{{ p.id }}" class="btn"
+              >Eliminar</a
+            >
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  

@@ -1,4 +1,6 @@
 import { Component, OnInit } from '@angular/core';
+import { ModeloPersona } from 'src/app/modelos/persona.modelo';
+import { PersonaService } from 'src/app/servicio/persona.service';
 
 @Component({
   selector: 'app-buscar-persona',
@@ -6,10 +8,18 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./buscar-persona.component.css']
 })
 export class BuscarPersonaComponent implements OnInit {
-
-  constructor() { }
+  listadoUsuario: ModeloPersona[] = [];
+  buscarUsuario: string = '';
+  constructor(private usuarioservicio: PersonaService) {
+    this.obtenerListaPersona();
+   }
 
   ngOnInit(): void {
   }
 
+  obtenerListaPersona() {
+    this.usuarioservicio.obtenerRegistros().subscribe((datos: ModeloPersona[]) => {
+      this.listadoUsuario = datos;
+    });
+  }
 }

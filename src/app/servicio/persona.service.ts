@@ -1,46 +1,43 @@
 import { HttpClient, HttpHeaders } from '@angular/common/http';
 import { Injectable } from '@angular/core';
 import { Observable } from 'rxjs';
-import { ModeloAvion } from '../modelos/avion.modelo';
+import { ModeloPersona } from '../modelos/persona.modelo';
 import { SeguridadService } from './seguridad.service';
 
 @Injectable({
   providedIn: 'root',
 })
-export class AvionService {
+export class PersonaService {
   url = 'http://[::1]:3000';
   token: String = '';
-  idUsuario: String = '';
   constructor(
     private http: HttpClient,
     private seguridadservicio: SeguridadService
   ) {
     let dato = this.seguridadservicio.obtenerToken();
     this.token = dato.tk;
-    this.idUsuario = dato.datos.id.toString();
   }
 
-  obtenerRegistros(): Observable<ModeloAvion[]> {
-    return this.http.get<ModeloAvion[]>(`${this.url}/aviones`, {
+  obtenerRegistros(): Observable<ModeloPersona[]> {
+    return this.http.get<ModeloPersona[]>(`${this.url}/personas`, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`,
       }),
     });
   }
 
-  crearAvion(avion: ModeloAvion): Observable<ModeloAvion> {
-    avion.responsableId = this.idUsuario;
-    return this.http.post<ModeloAvion>(`${this.url}/aviones`, avion, {
+  crearUsuario(usuario: ModeloPersona): Observable<ModeloPersona> {
+    return this.http.post<ModeloPersona>(`${this.url}/personas`, usuario, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`,
       }),
     });
   }
 
-  actulizarAvion(avion: ModeloAvion): Observable<ModeloAvion> {
-    return this.http.put<ModeloAvion>(
-      `${this.url}/aviones/${avion.id}`,
-      avion,
+  actulizarUsuario(usuario: ModeloPersona): Observable<ModeloPersona> {
+    return this.http.put<ModeloPersona>(
+      `${this.url}/personas/${usuario.id}`,
+      usuario,
       {
         headers: new HttpHeaders({
           Authorization: `Bearer ${this.token}`,
@@ -49,16 +46,16 @@ export class AvionService {
     );
   }
 
-  eliminarAvion(id: String): Observable<any> {
-    return this.http.delete(`${this.url}/aviones/${id}`, {
+  eliminarUsuario(id: String): Observable<any> {
+    return this.http.delete(`${this.url}/personas/${id}`, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`,
       }),
     });
   }
 
-  buscarAvionId(id: String): Observable<ModeloAvion> {
-    return this.http.get<ModeloAvion>(`${this.url}/aviones/${id}`, {
+  buscarUsuarioId(id: String): Observable<ModeloPersona> {
+    return this.http.get<ModeloPersona>(`${this.url}/personas/${id}`, {
       headers: new HttpHeaders({
         Authorization: `Bearer ${this.token}`,
       }),

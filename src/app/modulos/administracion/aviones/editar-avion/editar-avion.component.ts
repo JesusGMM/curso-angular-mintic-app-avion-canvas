@@ -3,6 +3,7 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { ActivatedRoute, Router } from '@angular/router';
 import { ModeloAvion } from 'src/app/modelos/avion.modelo';
 import { AvionService } from 'src/app/servicio/avion.service';
+import Swal from 'sweetalert2'
 
 @Component({
   selector: 'app-editar-avion',
@@ -61,11 +62,19 @@ export class EditarAvionComponent implements OnInit {
     p.imagen = this.fgValidador.controls['imagen'].value;
     this.avionservicio.actulizarAvion(p).subscribe(
       (datos: ModeloAvion) => {
-        alert('avion Actualizado');
+        Swal.fire({
+          title: 'Avion Actualizado',
+          text: 'Cambios registrados',
+          icon: 'success',
+        })
         this.router.navigate(['/administracion/buscar-avion']);
       },
       (error: any) => {
-        alert('error');
+        Swal.fire({
+          title: 'Error',
+          text: 'Error al actualizar un avión',
+          icon: 'error',
+        })
       }
     );
   }
